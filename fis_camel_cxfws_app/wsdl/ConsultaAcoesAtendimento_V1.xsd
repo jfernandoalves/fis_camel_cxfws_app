@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://xmlns.fnis.com.br/consultaAcoesAtendimento/V1.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:Q1="http://xmlns.fnis.com.br/Commons/V1" xmlns:consacoatendv1="http://xmlns.fnis.com.br/consultaAcoesAtendimento/V1.xsd" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions">
+  <xsd:import schemaLocation="ServiceIdentification_V1.xsd" namespace="http://xmlns.fnis.com.br/Commons/V1"/>
+  <xsd:element ibmSchExtn:docRoot="true" name="ConsultarAcoesAtendimentoRequest" type="consacoatendv1:ConsultarAcoesAtendimentoRequestType"/>
+  <xsd:complexType name="ConsultarAcoesAtendimentoRequestType">
+    <xsd:sequence>
+      <xsd:element ref="Q1:ServiceIdentification"/>
+      <xsd:element maxOccurs="1" minOccurs="1" name="cdAcao" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>AR para o qual se deseja consultar dados</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="1" name="nmOrigem" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Origem da chamada do serviço</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element ibmSchExtn:docRoot="true" name="ConsultarAcoesAtendimentoResponse" type="consacoatendv1:ConsultarAcoesAtendimentoResponseType"/>
+  <xsd:complexType name="ConsultarAcoesAtendimentoResponseType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="1" name="responseDate" type="xsd:dateTime"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="dsAcao" type="xsd:string"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="tpAcao" type="xsd:string"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="dsTipoAcao" type="xsd:string"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="stAcao" type="xsd:string"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="dsStatusAcao" type="xsd:string"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="ListaMotivo" type="consacoatendv1:ListaMotivoType"/>
+    </xsd:sequence>
+    <xsd:attribute name="UUID" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:complexType name="ListaMotivoType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="100" minOccurs="0" name="Motivo" type="consacoatendv1:MotivoType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="MotivoType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="0" name="seqAcao" type="xsd:string"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="dsSeqAcao" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

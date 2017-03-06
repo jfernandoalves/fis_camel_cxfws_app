@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://xmlns.fnis.com.br/Commons/V1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:fiscommonsv1="http://xmlns.fnis.com.br/Commons/V1" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions">
+  <xsd:element ibmSchExtn:docRoot="true" name="FISFaultService" type="fiscommonsv1:FISFaultServiceType"/>
+  <xsd:complexType name="FISFaultServiceType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="1" name="faultCode" type="xsd:string"/>
+      <xsd:element maxOccurs="1" minOccurs="1" name="faultMsg" type="xsd:string"/>
+      <xsd:element maxOccurs="1" minOccurs="1" name="faultDetail" type="xsd:string"/>
+    </xsd:sequence>
+    <xsd:attribute name="UUID" type="xsd:string"/>
+  </xsd:complexType>
+</xsd:schema>

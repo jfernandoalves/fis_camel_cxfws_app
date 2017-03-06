@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://xmlns.fnis.com.br/Commons/V1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:fiscommonsv1="http://xmlns.fnis.com.br/Commons/V1">
+  <xsd:element name="ServiceIdentification" type="fiscommonsv1:ServiceIdentificationType"/>
+  <xsd:complexType name="ServiceIdentificationType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="1" name="organizationName" type="xsd:string"/>
+      <xsd:element maxOccurs="1" minOccurs="1" name="organizationID">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:length value="3"/>
+            <xsd:whiteSpace value="collapse"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="1" name="requestDate">
+        <xsd:annotation>
+          <xsd:documentation>Data e hora no formato YYYYMMDDHHMMSS</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:length value="14"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="1" name="partnerName" type="xsd:string"/>
+      <xsd:element maxOccurs="1" minOccurs="1" name="userName" type="xsd:string"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="channel">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:minLength value="0"/>
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="cdLogo">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:minLength value="0"/>
+            <xsd:maxLength value="3"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="cdLoja">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:minLength value="0"/>
+            <xsd:maxLength value="20"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute name="UUID" use="required">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:minLength value="0"/>
+          <xsd:maxLength value="50"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="version" use="required">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:int">
+          <xsd:minInclusive value="0"/>
+          <xsd:maxInclusive value="99"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+  </xsd:complexType>
+</xsd:schema>
